@@ -2,6 +2,17 @@ import React from 'react';
 import { MDBRow, MDBCol, Button, MDBInput } from 'mdbreact';
 import PropTypes from 'prop-types';
 
+const ButtonUI = ({ onClick, text }) => (
+  <Button
+    outline
+    color="mdb-color"
+    size="sm"
+    onClick={onClick}
+  >
+    {text}
+   </Button>
+);
+
 const SearchFilter = ({ onChangeHandler, onClickHandler, onResetHandler, searchKey }) => {
   return(
       <MDBRow>
@@ -9,24 +20,10 @@ const SearchFilter = ({ onChangeHandler, onClickHandler, onResetHandler, searchK
           <MDBInput className="form-control" type="text" name="searchFilter" label="Search here..." onChange={onChangeHandler} value={searchKey} />
         </MDBCol>
         <MDBCol middle="true" size="auto">
-          <Button
-            outline
-            color="mdb-color"
-            size="sm"
-            onClick={onClickHandler}
-          >
-            Search
-          </Button>
+          <ButtonUI onClick={onClickHandler} text="Search" />
         </MDBCol>
         <MDBCol middle="true" size="auto">
-          <Button
-            outline
-            color="black"
-            size="sm"
-            onClick={onResetHandler}
-          >
-            Reset
-          </Button>
+          <ButtonUI onClick={onResetHandler} text="Reset" />
         </MDBCol>
       </MDBRow>
   );
